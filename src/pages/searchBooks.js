@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import { SearchResultCard } from "../components/SearchResultCard/index.js";
 
-class Search extends Component {
+class SearchBooks extends Component {
     // Empty Starter State
     state = {
         search: "",
@@ -21,14 +21,15 @@ class Search extends Component {
     saveBook = (id) => {
         // Destructuring to keep code DRY.
         let {
-            volumeInfo: { id, title, authors, description, img, link, imageLinks },
+            volumeInfo: { _id, title, authors, description, img, link, infoLink, imageLinks },
         } = this.state.books.find((book) => book.id === id);
         API.saveBook({
-            id: id,
+            _id: _id,
             title: title,
             authors: authors,
             description: description,
             img: img,
+            link: link,
             infoLink: infoLink,
             imageLinks: imageLinks
         });
@@ -72,4 +73,4 @@ class Search extends Component {
     };
 };
 
-export default Search;
+export default SearchBooks;

@@ -13,14 +13,14 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
 // API Routes
 app.use(routes);
-// Any * requests go to index.html
+// 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-// MLab
 // const MONGODB_URI = "mongodb+srv://fftab:ZAIML0oqmdaF6KZw@cluster0.bmkuq.mongodb.net/google_books_search?retryWrites=true&w=majority";
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/google_books_search",

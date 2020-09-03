@@ -1,9 +1,10 @@
 const router = require("express").Router();
-const db = require("../models");
+const db = require("../models/book.js");
 
 // Express Routes
 // Get
 router.get("/api/books", (req, res) => {
+    console.log(db.Book.dbBook);
     db.Book.find({}).then(dbBook => {
         res.json(dbBook);
     });
@@ -24,3 +25,5 @@ router.delete("/api/books/:id", (req, res) => {
         res.json(dbBook);
     });
 });
+
+module.exports = router;

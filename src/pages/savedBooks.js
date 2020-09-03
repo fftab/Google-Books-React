@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import { SavedResultCard } from "../components/SavedResultCard/index.js";
 
-class Saved extends Component {
+class SavedBooks extends Component {
     // Empty Starter State
     state = {
         books: []
@@ -48,4 +48,4 @@ class Saved extends Component {
     };
 };
 
-export default Saved;
+export default SavedBooks;
